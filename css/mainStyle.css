@@ -1,0 +1,803 @@
+/*Déclarations polices d'écriture*/
+@font-face{
+    font-family: "Helvetica NeueThin";
+    src: url("../fonts/HelveticaNeue Thin.ttf");
+}
+@font-face {
+    font-family: "Helvetica NeueBd";
+    src: url("../fonts/HelveticaNeueBd.ttf");
+}
+@font-face {
+    font-family: "Helvetica NeueMedium";
+    src: url("../fonts/HelveticaNeue Medium.ttf");
+}
+@font-face {
+    font-family: "Matrix";
+    src: url("../fonts/matrix.ttf");
+}
+
+.font-matrix{
+    font-family: "Matrix";
+}
+.font-helvetica-thin{
+    font-family: "Helvetica NeueThin";
+}
+.font-helvetica-bold{
+    font-family: "Helvetica NeueBd";
+}
+.font-helvetica-med{
+    font-family: "Helvetica NeueMedium";
+}
+.container-fluid{
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+.row{
+    margin: 0;
+    padding: 0;
+}
+.ul-nav{
+    font-size: 15px;
+}
+li{
+    list-style: none;
+}
+.bg-green-dark{
+    background: rgb(7,8,7);
+    background: linear-gradient(90deg, rgba(7,8,7,1) 0%, rgba(65,65,78,1) 35%, rgba(3,69,21,1) 100%);
+}
+canvas {
+    display: block;
+    position:absolute;
+    top:0;
+    left:0;
+}
+#canvas{
+    width: 1260px;
+}
+#canvas2{
+    width: 1260px;
+}
+#app {
+    background: #0a0a0a;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#wrapper {
+    text-align: center;
+}
+
+.sub {
+    color: green;
+    letter-spacing: 1em;
+    position: relative;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.navbar-dark .navbar-toggler-icon{
+    background-image: url("../img/icons8-écran-matrix-48.png");
+    font-size: 2rem;
+}
+
+/* Our mixin positions a copy of our text
+directly on our existing text, while
+also setting content to the appropriate
+text set in the data-text attribute. */
+.glitch {
+    position: relative;
+    color: white;
+    font-size: 4em;
+    letter-spacing: .5em;
+    /* Animation provies a slight random skew. Check bottom of doc
+    for more information on how to random skew. */
+    animation: glitch-skew 1s infinite linear alternate-reverse;
+}
+.glitch::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    left: 2px;
+    text-shadow: -2px 0 #ff00c1;
+    /* Creates an initial clip for our glitch. This works in
+    a typical top,right,bottom,left fashion and creates a mask
+    to only show a certain part of the glitch at a time. */
+    clip: rect(44px, 450px, 56px, 0);
+    /* Runs our glitch-anim defined below to run in a 5s loop, infinitely,
+    with an alternating animation to keep things fresh. */
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    left: -2px;
+    text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+    animation: glitch-anim2 1s infinite linear alternate-reverse;
+}
+
+/* Creates an animation with 20 steaps. For each step, it calculates
+a percentage for the specific step. It then generates a random clip
+box to be used for the random glitch effect. Also adds a very subtle
+skew to change the 'thickness' of the glitch.*/
+@keyframes glitch-anim {
+    0% {
+        clip: rect(85px, 9999px, 89px, 0);
+        transform: skew(0.3deg);
+    }
+    5% {
+        clip: rect(13px, 9999px, 25px, 0);
+        transform: skew(0.67deg);
+    }
+    10% {
+        clip: rect(84px, 9999px, 32px, 0);
+        transform: skew(0.13deg);
+    }
+    15% {
+        clip: rect(31px, 9999px, 3px, 0);
+        transform: skew(0.22deg);
+    }
+    20% {
+        clip: rect(58px, 9999px, 26px, 0);
+        transform: skew(0.18deg);
+    }
+    25% {
+        clip: rect(98px, 9999px, 66px, 0);
+        transform: skew(0.27deg);
+    }
+    30% {
+        clip: rect(15px, 9999px, 35px, 0);
+        transform: skew(0.62deg);
+    }
+    35% {
+        clip: rect(66px, 9999px, 28px, 0);
+        transform: skew(0.24deg);
+    }
+    40% {
+        clip: rect(44px, 9999px, 23px, 0);
+        transform: skew(0.62deg);
+    }
+    45% {
+        clip: rect(14px, 9999px, 84px, 0);
+        transform: skew(0.31deg);
+    }
+    50% {
+        clip: rect(13px, 9999px, 9px, 0);
+        transform: skew(0.08deg);
+    }
+    55% {
+        clip: rect(1px, 9999px, 43px, 0);
+        transform: skew(0.81deg);
+    }
+    60% {
+        clip: rect(12px, 9999px, 1px, 0);
+        transform: skew(0.79deg);
+    }
+    65% {
+        clip: rect(78px, 9999px, 41px, 0);
+        transform: skew(0.09deg);
+    }
+    70% {
+        clip: rect(58px, 9999px, 16px, 0);
+        transform: skew(0.83deg);
+    }
+    75% {
+        clip: rect(64px, 9999px, 84px, 0);
+        transform: skew(0.36deg);
+    }
+    80% {
+        clip: rect(58px, 9999px, 31px, 0);
+        transform: skew(0.5deg);
+    }
+    85% {
+        clip: rect(8px, 9999px, 33px, 0);
+        transform: skew(0.09deg);
+    }
+    90% {
+        clip: rect(78px, 9999px, 12px, 0);
+        transform: skew(0.25deg);
+    }
+    95% {
+        clip: rect(76px, 9999px, 43px, 0);
+        transform: skew(0.08deg);
+    }
+    100% {
+        clip: rect(38px, 9999px, 42px, 0);
+        transform: skew(0.5deg);
+    }
+}
+@keyframes glitch-anim2 {
+    0% {
+        clip: rect(68px, 9999px, 54px, 0);
+        transform: skew(0.14deg);
+    }
+    5% {
+        clip: rect(92px, 9999px, 77px, 0);
+        transform: skew(0.7deg);
+    }
+    10% {
+        clip: rect(87px, 9999px, 95px, 0);
+        transform: skew(0.31deg);
+    }
+    15% {
+        clip: rect(21px, 9999px, 41px, 0);
+        transform: skew(0.6deg);
+    }
+    20% {
+        clip: rect(10px, 9999px, 6px, 0);
+        transform: skew(0.48deg);
+    }
+    25% {
+        clip: rect(59px, 9999px, 48px, 0);
+        transform: skew(0.89deg);
+    }
+    30% {
+        clip: rect(6px, 9999px, 92px, 0);
+        transform: skew(0.77deg);
+    }
+    35% {
+        clip: rect(22px, 9999px, 94px, 0);
+        transform: skew(0.67deg);
+    }
+    40% {
+        clip: rect(73px, 9999px, 33px, 0);
+        transform: skew(0.24deg);
+    }
+    45% {
+        clip: rect(65px, 9999px, 84px, 0);
+        transform: skew(0.66deg);
+    }
+    50% {
+        clip: rect(95px, 9999px, 95px, 0);
+        transform: skew(0.86deg);
+    }
+    55% {
+        clip: rect(63px, 9999px, 79px, 0);
+        transform: skew(0.59deg);
+    }
+    60% {
+        clip: rect(13px, 9999px, 84px, 0);
+        transform: skew(0.63deg);
+    }
+    65% {
+        clip: rect(40px, 9999px, 26px, 0);
+        transform: skew(0.69deg);
+    }
+    70% {
+        clip: rect(50px, 9999px, 28px, 0);
+        transform: skew(0.61deg);
+    }
+    75% {
+        clip: rect(75px, 9999px, 100px, 0);
+        transform: skew(0.88deg);
+    }
+    80% {
+        clip: rect(21px, 9999px, 98px, 0);
+        transform: skew(0.36deg);
+    }
+    85% {
+        clip: rect(4px, 9999px, 30px, 0);
+        transform: skew(0.82deg);
+    }
+    90% {
+        clip: rect(78px, 9999px, 19px, 0);
+        transform: skew(0.16deg);
+    }
+    95% {
+        clip: rect(94px, 9999px, 37px, 0);
+        transform: skew(0.81deg);
+    }
+    100% {
+        clip: rect(22px, 9999px, 70px, 0);
+        transform: skew(0.73deg);
+    }
+}
+@keyframes glitch-skew {
+    0% {
+        transform: skew(5deg);
+    }
+    10% {
+        transform: skew(3deg);
+    }
+    20% {
+        transform: skew(2deg);
+    }
+    30% {
+        transform: skew(0deg);
+    }
+    40% {
+        transform: skew(1deg);
+    }
+    50% {
+        transform: skew(-1deg);
+    }
+    60% {
+        transform: skew(0deg);
+    }
+    70% {
+        transform: skew(-1deg);
+    }
+    80% {
+        transform: skew(4deg);
+    }
+    90% {
+        transform: skew(-1deg);
+    }
+    100% {
+        transform: skew(-4deg);
+    }
+}
+
+.my-name{
+    color: green;
+    text-align: center;
+    letter-spacing: 1.2em;
+}
+.my-bg-dark{
+    background-color: #000;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.125), rgba(255, 255, 255, 0)), linear-gradient(to bottom, #000, #000 2px, #111 3px);
+    background-repeat: repeat-y;
+    background-position: center center;
+    background-size: cover, 100% 3px;
+}
+.bg-custom-1{
+    background-image: url("../img/sintaxi-css.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 500px;
+    background-position: bottom;
+    position: relative;
+}
+.bg-custom-2{
+    background-image: url("../img/030d79644f497a8e06c7ed38f6cd550d.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 400px;
+    background-position: center;
+    position: relative;
+}
+.bg-custom-3{
+    background-image: url("../img/pexels-василь-вовк-4405368.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 500px;
+    background-position: center;
+    position: relative;
+}
+.overlay{
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000000b3;
+}
+
+.p-who-am-i{
+    font-size: 1.75rem;
+    padding: 25px;
+}
+/*Partie compétences*/
+.circle{
+    width: 15%;
+}
+.img-circle{
+    border: 1px groove forestgreen;
+    -moz-border-radius : 75px;
+    -webkit-border-radius : 75px;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+}
+
+/*logo html - css*/
+.img-circle-1{
+    background-size : contain;
+    background-position : 50% 50%;
+    background-image : url("../img/html5css3__024276400_1034_29082016.png");
+    background-repeat: no-repeat;
+    display : inline-block;
+}
+/*logo JS*/
+.img-circle-2{
+    background-size : contain;
+    background-position : 50% 50%;
+    background-image : url("../img/logo_javascript.png");
+    background-repeat: no-repeat;
+    display : inline-block;
+}
+/*logo jQuery*/
+.img-circle-3{
+    background-size : contain;
+    background-position : 50% 50%;
+    background-image : url("../img/formation-jquery.png");
+    background-repeat: no-repeat;
+    display : inline-block;
+}
+/*logo Php*/
+.img-circle-4{
+    background-size : contain;
+    background-position : 50% 50%;
+    background-image : url("../img/php_PNG50.png");
+    background-repeat: no-repeat;
+    display : inline-block;
+}
+/*logo mySql*/
+.img-circle-5{
+    background-size : contain;
+    background-position : 50% 50%;
+    background-image : url("../img/MySQL-Logo.wine.png");
+    background-repeat: no-repeat;
+    display : inline-block;
+}
+/*logo Symfony*/
+.img-circle-6{
+    background-size : contain;
+    background-position : 50% 50%;
+    background-image : url("../img/logo-symfony.png");
+    background-repeat: no-repeat;
+    display : inline-block;
+}
+/*logo Wordpress*/
+.img-circle-7{
+    background-size : contain;
+    background-position : 50% 50%;
+    background-image : url("../img/unnamed2.png");
+    background-repeat: no-repeat;
+    display : inline-block;
+}
+/*logo Stripe*/
+.img-circle-8{
+    background-size : contain;
+    background-position : 50% 50%;
+    background-image : url("../img/Stripe-Logo.png");
+    background-repeat: no-repeat;
+    display : inline-block;
+}
+/*logo AdobeIllustrator*/
+.img-circle-9{
+    background-size : contain;
+    background-position : 50% 50%;
+    background-image : url("../img/illustrator-full-logo.png");
+    background-repeat: no-repeat;
+    display : inline-block;
+}
+/*logo Blender*/
+.img-circle-10{
+    background-size : contain;
+    background-position : 50% 50%;
+    background-image : url("../img/blender_logo_socket.png");
+    background-repeat: no-repeat;
+    display : inline-block;
+}
+/*logo SEO*/
+.img-circle-11{
+    background-size : contain;
+    background-position : 50% 50%;
+    background-image : url("../img/seo-1024x499.png");
+    background-repeat: no-repeat;
+    display : inline-block;
+}
+/*logo GIT*/
+.img-circle-12{
+    background-size : contain;
+    background-position : 50% 50%;
+    background-image : url("../img/1280px-Git-logo.svg.png");
+    background-repeat: no-repeat;
+    display : inline-block;
+}
+
+.circle_side{
+    -webkit-transition: all 0.8s ease;
+    transition: all 0.8s ease;
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: hidden;
+}
+.circle_side-back{
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+.circle:hover .circle_side-front-1{
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+.circle:hover .circle_side-front-2{
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+.circle:hover .circle_side-front-3{
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+.circle:hover .circle_side-front-4{
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+.circle:hover .circle_side-front-5{
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+.circle:hover .circle_side-front-6{
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+.circle:hover .circle_side-front-7{
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+.circle:hover .circle_side-front-8{
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+
+.circle:hover .circle_side-front-9{
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+.circle:hover .circle_side-front-10{
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+.circle:hover .circle_side-front-11{
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+.circle:hover .circle_side-front-12{
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+.circle:hover .circle_side-back{
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+}
+.circle_cta{
+    position: relative;
+    bottom: 100px;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 100%;
+    font-size: 13px;
+    list-style: none;
+}
+li::before {
+    content: "•";
+    color: #34C924;
+}
+.projects-card {
+    justify-content: space-between;
+}
+
+/*Footer*/
+.info-footer{
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    color: #34C924;
+
+}
+.border-footer{
+    border-top: 1px groove #34C924;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.arrow{
+    width: 30px;
+    position:fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.mop{
+    width: 100%;
+}
+
+/*MediaQueries*/
+@media screen and (min-width: 320px) and (max-width: 400px){
+    .sub{
+        left: 0;
+        letter-spacing: 15px;
+    }
+
+    .p-who-am-i{
+        font-size: 2rem;
+        line-height: 1.5em;
+    }
+
+    #anchor-competences{
+        font-size: 30px;
+    }
+    #title-project{
+        font-size: 30px;
+    }
+    .skills{
+        flex-direction: column;
+    }
+    .img-circle{
+        margin: auto;
+    }
+    #anchor-projects{
+        height: 110rem;
+    }
+    .projects-card{
+        flex-direction: column;
+    }
+    .glitch-2 .glitch__title{
+        font-size: 47px;
+    }
+    #card-momsBox{
+        left: 65%;
+        width: 40rem;
+        perspective: 0;
+        height: 100%;
+    }
+    #card-liEnergies{
+        left: 65%;
+        width: 40rem;
+        perspective: 0;
+        height: 100%;
+    }
+    .card-to-resize{
+        margin-top: 15rem;
+    }
+    #div-glitch{
+        height: 50vh;
+    }
+    #glitch-title{
+        font-size: 45px;
+    }
+    .form-group{
+        width: 90%;
+    }
+    #div-recaptcha{
+        width: 100%;
+    }
+    #g-recaptcha{
+        width: 100%;
+    }
+}
+@media screen and (min-width: 400px) and (max-width: 600px){
+    .sub{
+        left: 0;
+    }
+    .p-who-am-i{
+        font-size: 2.2rem;
+        line-height: 1.5em;
+    }
+    #anchor-competences{
+        font-size: 37px;
+    }
+    .skills{
+        flex-direction: column;
+    }
+    .img-circle{
+        margin: auto;
+    }
+    #title-project{
+        font-size: 37px;
+    }
+    .projects-card{
+        flex-direction: column;
+    }
+    .card-to-resize{
+        margin-top: 20rem;
+    }
+    #card-momsBox{
+        left: 68%;
+        width: 50rem;
+        perspective: 0;
+        height: 100%;
+    }
+    #card-liEnergies{
+        left: 68%;
+        width: 50rem;
+        perspective: 0;
+        height: 100%;
+    }
+
+    #div-glitch{
+        height: 65vh;
+    }
+    #glitch-title{
+        font-size: 54px;
+    }
+    .form-group{
+        width: 100%;
+    }
+    #div-recaptcha{
+        width: 100%;
+    }
+    #g-recaptcha{
+        width: 100%;
+    }
+}
+@media screen and (min-width: 600px) and (max-width: 1002px) {
+    .sub{
+        left: 5rem;
+    }
+    .p-who-am-i{
+        font-size: 2rem;
+    }
+    .skills{
+        flex-direction: column;
+    }
+    .img-circle{
+        margin: auto;
+    }
+    .projects-card{
+        flex-direction: column;
+    }
+    .card-to-resize{
+        margin-top: 30rem;
+    }
+    #card-momsBox{
+        left: 95%;
+        height: 70rem;
+        perspective: 300rem;
+    }
+    #card-liEnergies{
+        left: 95%;
+        height: 70rem;
+        perspective: 300rem;
+    }
+    #card-capture-momsbox{
+        width: 650px;
+        height: 400px;
+        position: relative;
+        right: 90px;
+    }
+    #card-capture-lienergies{
+        width: 650px;
+        height: 380px;
+        position: relative;
+        right: 90px;
+    }
+    #div-glitch{
+        height: 50vh;
+    }
+    #anchor-contact{
+        max-width: 90%;
+    }
+    .form-group{
+        width: 100%;
+    }
+    #div-recaptcha{
+        width: 100%;
+    }
+    #g-recaptcha{
+        width: 100%;
+    }
+    .champs{
+        margin: 0;
+    }
+}
